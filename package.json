@@ -14,9 +14,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^0.28.1",
     "exports-loader": "^0.6.4",
+    "extract-text-webpack-plugin": "^2.1.0",
     "napa": "^2.3.0",
     "no-export-loader": "^1.0.0",
+    "style-loader": "^0.17.0",
     "tingle.js": "^0.10.0",
     "webpack": "^2.5.1"
   }
