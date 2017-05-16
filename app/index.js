@@ -30,7 +30,7 @@ var Scanner = {
 	    height: 400,
 	    successTimeout: 250,
         resultFunction: function(result) {
-            window.scanner.returnResult(result);
+            window.qrscanner.returnResult(result);
         }
     },
     init: function(){
@@ -39,7 +39,18 @@ var Scanner = {
         this.scanner.stop();
         return this;
     },
-    open: function(){
+    open: function(event, caller){
+        console.log(event, caller);
+        try{
+            if (caller.matches('[name=qrtarget]')){
+                this.outputTarget = caller;
+            }else{
+                this.outputTarget = caller.querySelectorAll('[name=qrtarget]')[0];
+            }
+
+        }catch (err){
+            console.log("error:" , err)
+        }
         if (!this.isOpen){
             this.scannedValue = null;
             this.modal.open();
@@ -58,10 +69,17 @@ var Scanner = {
         if (this.isOpen){
             this.scannedValue = result.code;
             console.log(result)
+            try{
+                console.log(this.outputTarget)
+                this.outputTarget.value = this.scannedValue;
+            }catch (err) {
+              console.log("couldn't write value: " ,err)
+            }
             this.modal.close();
         }
     },
-    scannedValue: null
+    scannedValue: null,
+    outputTarget: null
 }
 window.qrscanner = Scanner.init();
 

@@ -1,15 +1,33 @@
  <html>
    <head>
-     <title>webpack 2 demo</title>
+     <title>Qr Code Scanner Widget Demo</title>
      <link rel="stylesheet" type="text/css" href="dist/tingle.css"/>
-	
    </head>
    <body>
-     
-
      <script src="dist/app.js"></script>     
-     <input id="clickMe" type="button" value="clickme" onclick="qrscanner.open()" />
-     
+
+
+<p> This is a simple demonstration of the QR scanning widget. It's currently written to close the camera connection when the modal is closed. You can certainly change that easily. 
+</p>
+
+    <p>
+    (clicks on the textbox trigger and dump to itself [name=qrtarget])<br>
+     QR Value #1:<input type="text" name='qrtarget' onclick="qrscanner.open(event, this)"></input><br>    
+    </p>
+
+    <div onclick="qrscanner.open(event, this)" >
+         (clicks on this div trigger search for child name=qrtarget)<br>
+         QR Value #2:<input type="text" name='qrtarget'></input>
+         <button value="Scan" href="#">Scan!</button> 
+    </div>
+    <br>
+    <div>
+        (clicks on the Scan! button search the parent div for a child with name=qrtarget)<br>
+         QR Value #3:<input type="text" name='qrtarget'></input>
+        <button value="scan" href="#" onclick="qrscanner.open(event, this.parentNode)">Scan!</button>
+    </div>
+
+
 
    </body>
  </html>
