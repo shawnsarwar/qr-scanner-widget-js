@@ -7,11 +7,11 @@ console.log(qrcode);
 
 var Scanner = {
 	modal: new tingle.modal({
-        footer: true,
+        footer: false,
 	    stickyFooter: false,
-	    closeMethods: ['overlay', 'button', 'escape'],
+	    closeMethods: ['overlay','escape'],
 	    closeLabel: "Close",
-	    cssClass: ['tingle-modal'],
+	    cssClass: ['tingle-modal--noOverlayClose'],
 	    onClose: function() {
             window.qrscanner.close();
 	    },
@@ -34,7 +34,7 @@ var Scanner = {
         }
     },
     init: function(){
-        this.modal.setContent("<canvas id='qr-canvas' width=400 height=400></canvas>");
+        this.modal.setContent("<canvas id='qr-canvas' style='width:100%; padding-bottom: 75%'></canvas>");
         this.scanner = new WebCodeCamJS("canvas").init(this.qrargs).play()
         this.scanner.stop();
         return this;

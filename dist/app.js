@@ -881,11 +881,11 @@ console.log(__WEBPACK_IMPORTED_MODULE_1_exports_loader_qrcode_node_modules_webco
 
 var Scanner = {
 	modal: new __WEBPACK_IMPORTED_MODULE_2_tingle_js___default.a.modal({
-        footer: true,
+        footer: false,
 	    stickyFooter: false,
-	    closeMethods: ['overlay', 'button', 'escape'],
+	    closeMethods: ['overlay','escape'],
 	    closeLabel: "Close",
-	    cssClass: ['tingle-modal'],
+	    cssClass: ['tingle-modal--noOverlayClose'],
 	    onClose: function() {
             window.qrscanner.close();
 	    },
@@ -908,7 +908,7 @@ var Scanner = {
         }
     },
     init: function(){
-        this.modal.setContent("<canvas id='qr-canvas' width=400 height=400></canvas>");
+        this.modal.setContent("<canvas id='qr-canvas' style='width:100%; padding-bottom: 75%'></canvas>");
         this.scanner = new __WEBPACK_IMPORTED_MODULE_0_exports_loader_WebCodeCamJS_node_modules_webcodecamjs_js_webcodecamjs_js___default.a("canvas").init(this.qrargs).play()
         this.scanner.stop();
         return this;
