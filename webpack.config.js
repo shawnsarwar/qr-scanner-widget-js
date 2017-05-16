@@ -17,10 +17,6 @@ module.exports = {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract("css-loader")
             }
-            // Optionally extract less files
-            // or any other compile-to-css language
-            
-            // You could also use other loaders the same way. I. e. the autoprefixer-loader
         ]
     },
     // Use the plugin to specify the resulting filename (and add needed behavior to the compiler)
